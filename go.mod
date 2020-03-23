@@ -1,4 +1,4 @@
-module github.com/dillonhafer/left-click
+module github.com/dillonhafer/right-click
 
 go 1.13
 

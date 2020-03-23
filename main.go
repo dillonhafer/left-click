@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"os"
 	"time"
 
@@ -10,16 +11,19 @@ import (
 func listenForQuit() {
 	println("Press q at anytime to quit")
 	if robotgo.AddEvent("q") {
+		println("Quiting...")
 		os.Exit(0)
 	}
 }
 
 func main() {
+	delay := flag.Int("d", 2, "delay in seconds")
+	flag.Parse()
+	slumber := time.Duration(*delay) * time.Second
 	go listenForQuit()
 
 	for true {
-		time.Sleep(2 * time.Second)
-		robotgo.MouseClick("left", true)
-		println("left clicked")
+		time.Sleep(slumber)
+		robotgo.MouseClick("right", true)
 	}
 }
