@@ -24,6 +24,6 @@ func main() {
 
 	for true {
 		time.Sleep(slumber)
-		robotgo.MouseClick("right", true)
+		robotgo.MouseClick("right", false)
 	}
 }
